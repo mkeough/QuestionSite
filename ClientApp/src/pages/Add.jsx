@@ -9,7 +9,7 @@ const Add = () => {
     newQuestionInfo: {},
   })
   const updateQuestionData = e => {
-    const key = e.target.value
+    const key = e.target.name
     const value = e.target.value
     setQuestion(prevQuestion => {
       prevQuestion[key] = value
@@ -24,34 +24,34 @@ const Add = () => {
     } else {
       return console.log('error', question)
     }
+  }
 
-    if (successfullyAdded.shouldRedirect) {
-      return (
-        <Redirect
-          to={{
-            pathName: '/question',
-            state: { question: successfullyAdded.newQuestionInfo },
-          }}
-        />
-      )
-    } else {
-      return (
-        <>
-          <main>
-            <p>Add Your Question</p>
-            <input
-              type="text"
-              name="UserQuestion"
-              onchange={updateQuestionData}
-            />
-            <p>Enter Keyword(s) for your Question</p>
-            <input type="text" name="Keyword" onChange={updateQuestionData} />
-            <p>Submit</p>
-            <button onClick={addQuestionToApi}>Add</button>
-          </main>
-        </>
-      )
-    }
+  if (successfullyAdded.shouldRedirect) {
+    return (
+      <Redirect
+        to={{
+          pathName: `/question/${successfullyAdded.newQuestionInfo.id}`,
+          state: { question: successfullyAdded.newQuestionInfo },
+        }}
+      />
+    )
+  } else {
+    return (
+      <>
+        <main>
+          <p>Add Your Question</p>
+          <input
+            type="text"
+            name="userQuestion"
+            onChange={updateQuestionData}
+          />
+          <p>Enter Keyword(s) for your Question</p>
+          <input type="text" name="keyWord" onChange={updateQuestionData} />
+          <p>Submit</p>
+          <button onClick={addQuestionToApi}>Add</button>
+        </main>
+      </>
+    )
   }
 }
 
