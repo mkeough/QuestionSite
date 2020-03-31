@@ -1,0 +1,28 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+.home {
+  text-align: center;
+}
+.home h1 {
+  margin: 5rem;
+}
+.home p {
+  font-size: 30px;
+  margin: 2rem;
+  text-decoration: underline;
+}
+.home button {
+  width: 8rem;
+}

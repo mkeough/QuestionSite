@@ -1,0 +1,58 @@
+import React, { useState } from 'react'
+import axios from 'axios'
+import { Redirect } from 'react-router-dom'
+
+const Add = () => {
+  const [question, setQuestion] = useState({})
+  const [successfullyAdded, setSuccessfullyAdded] = useState({
+    shouldRedirect: false,
+    newQuestionInfo: {},
+  })
+  const updateQuestionData = e => {
+    const key = e.target.value
+    const value = e.target.value
+    setQuestion(prevQuestion => {
+      prevQuestion[key] = value
+      return prevQuestion
+    })
+  }
+  const addQuestionToApi = async () => {
+    console.log('adding', question)
+    const resp = await axios.post('/api/questions', question)
+    if (resp.status === 201) {
+      setSuccessfullyAdded({ shouldRedirect: true, newQuestionInfo: resp.data })
+    } else {
+      return console.log('error', question)
+    }
+
+    if (successfullyAdded.shouldRedirect) {
+      return (
+        <Redirect
+          to={{
+            pathName: '/question',
+            state: { question: successfullyAdded.newQuestionInfo },
+          }}
+        />
+      )
+    } else {
+      return (
+        <>
+          <main>
+            <p>Add Your Question</p>
+            <input
+              type="text"
+              name="UserQuestion"
+              onchange={updateQuestionData}
+            />
+            <p>Enter Keyword(s) for your Question</p>
+            <input type="text" name="Keyword" onChange={updateQuestionData} />
+            <p>Submit</p>
+            <button onClick={addQuestionToApi}>Add</button>
+          </main>
+        </>
+      )
+    }
+  }
+}
+
+export default Add
