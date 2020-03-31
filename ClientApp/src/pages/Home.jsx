@@ -5,7 +5,14 @@ export function Home() {
   return (
     <>
       <main className="home">
-        <h1>Suncoast Overflow</h1>
+        <header>
+          <section class="hero">
+            <h1>Suncoast Overflow</h1>
+            {/* <img src="../images/hero.jpg" /> */}
+
+            <h3>Find your solution, here!</h3>
+          </section>
+        </header>
         <p>View All Questions</p>
         <button>
           <Link to="/view">View</Link>

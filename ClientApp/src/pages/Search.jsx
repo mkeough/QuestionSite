@@ -6,6 +6,7 @@ const Search = () => {
   return (
     <>
       <section className="search-container">
+        <h3>Please enter a search prompt in the box below:</h3>
         <input type="search" />
         <button>Search</button>
       </section>
