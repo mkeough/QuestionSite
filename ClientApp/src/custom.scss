@@ -54,3 +54,23 @@ code {
   );
   width: 100%;
 }
+
+.search-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-container input {
+  width: 50%;
+  margin-right: 1rem;
+}
+
+.no-results-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  color: slategray;
+}

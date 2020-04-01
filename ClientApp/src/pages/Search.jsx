@@ -70,7 +70,7 @@ const Search = () => {
         <h3>Please enter a search prompt in the box below:</h3>
         <input
           type="search"
-          placeholder="search your list"
+          placeholder="search by keyword"
           onChange={updateSearchFilter}
         />
         <button>Search</button>
@@ -83,18 +83,19 @@ const Search = () => {
           })
           .map((q) => {
             return (
-
-                topic={q.topic},
-
-            )
-          })} */}
-          <li>Question 1</li>
-          <li>Question 2</li>
-          <li>Question 3</li>
-          <li>Question 4</li>
+              
+              topic={q.topic},
+              
+              )
+            })} */}
+          <li>Result 1</li>
+          <li>Result 2</li>
+          <li>Result 3</li>
+          <li>Result 4</li>
         </ul>
         <section className="no-results-message">
-          Question not found. <Link to="/add">Add a new one?</Link>
+          Question not found.
+          <Link to="/add"> Add a question to Suncoast Overflow?</Link>
         </section>
       </main>
     </>
