@@ -30,13 +30,15 @@ code {
 .hero {
   background-image: url('./images/hero.jpg');
   background-size: cover;
-  height: 100vh;
+  height: 36vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: gray;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .hero > h1 {
@@ -82,12 +84,13 @@ code {
 }
 
 section.redirect {
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
 .not-found {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgba(21, 21, 21, 0.81);
 }
 .error-pic-box {
   font-style: italic;

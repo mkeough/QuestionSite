@@ -28,9 +28,9 @@ const NotFound = () => {
         </section>
         <section class="redirect">
           {Math.ceil(Math.random() * 100) % 2 === 0 ? (
-            <span>🤷🏼‍♂️</span>
+            <span></span>
           ) : (
-            <span>🤷‍♀️</span>
+            <span></span>
           )}
           <h1> Not sure how you got here?</h1> <br />{' '}
           <h2>

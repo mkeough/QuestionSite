@@ -38,7 +38,7 @@ export class NavMenu extends Component {
         >
           <Container>
             <NavbarBrand tag={Link} to="/">
-              QuestionSite
+              <h2 class="home-title">QuestionSite</h2>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse
@@ -49,17 +49,25 @@ export class NavMenu extends Component {
               <ul className="navbar-nav flex-grow">
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">
-                    Home
+                    {/* this is the home icon */}
+                    {/* link operational */}
+                    <i class="fas fa-home" alt="house icon"></i>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/counter">
-                    Counter
+                    {/* this is the profile icon */}
+                    {/* link non-operational */}
+                    <i class="far fa-user-circle" alt="profile icon">
+                      {''}
+                    </i>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/typescript">
-                    Typescript
+                    {/* link non-operational */}
+                    {/* This is the messages icon */}
+                    <i class="fas fa-inbox" alt="messages icon"></i>
                   </NavLink>
                 </NavItem>
               </ul>
