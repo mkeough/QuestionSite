@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace QuestionSite.Models
 {
@@ -13,5 +14,8 @@ namespace QuestionSite.Models
     public bool IsAnswered { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+    // nav prop
+    public List<Review> Reviews { get; set; } = new List<Review>();
   }
 }
