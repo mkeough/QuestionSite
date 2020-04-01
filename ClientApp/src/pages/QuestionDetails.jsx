@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import UserQuestion from '../components/UserQuestion'
+import Question from '../components/Question'
 // import React from 'react'
 
 const QuestionDetails = props => {
@@ -18,7 +18,7 @@ const QuestionDetails = props => {
     getQuestionData()
   }, [])
   if (question) {
-    return <UserQuestion question={question} />
+    return <Question question={question} />
   } else {
     return <p>loading...</p>
   }
