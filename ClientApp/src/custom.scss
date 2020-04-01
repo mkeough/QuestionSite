@@ -38,3 +38,19 @@ code {
   flex-direction: column;
   color: gray;
 }
+
+.hero > h1 {
+  display: block;
+  font-size: 2rem;
+  padding: 1rem;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  background: linear-gradient(
+    rgba(255, 224, 102, 0.75),
+    rgba(242, 95, 92, 0.75)
+  );
+  width: 100%;
+}
