@@ -74,3 +74,21 @@ code {
   width: 100%;
   color: slategray;
 }
+
+.error-image {
+  height: 80vh;
+  width: 30vw;
+  opacity: 0.8;
+}
+
+section.redirect {
+  padding-left: 1rem;
+}
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.error-pic-box {
+  font-style: italic;
+}
