@@ -3,10 +3,11 @@ import { Route, Switch } from 'react-router'
 import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
 import Add from './pages/Add'
-import Question from './pages/Question'
+import QuestionDetails from './pages/QuestionDetails'
 import View from './pages/View'
 import Search from './pages/Search'
 import NotFound from './pages/NotFound'
+
 import './custom.scss'
 export default class App extends Component {
   static displayName = App.name
@@ -17,7 +18,11 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/add" component={Add} />
-          <Route exact path="/question" component={Question} />
+          <Route
+            exact
+            path="/question/:questionId"
+            component={QuestionDetails}
+          />
           <Route exact path="/view" component={View} />
           <Route exact path="/search" component={Search} />
           <Route exact path="*" component={NotFound} />
