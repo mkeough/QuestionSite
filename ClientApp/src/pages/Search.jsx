@@ -1,48 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Question from '../components/Question'
 import { Link } from 'react-router-dom'
 
 const Search = () => {
+  const [questions, setQuestions] = useState([])
   const [searchFilter, setSearchFilter] = useState('')
 
   // usestate placeholder for questions
   // const [questions, setQuestions] = useState('')
-
-  const questions = state => {
-    state = {
-      data: [
-        // Placeholder Questions
-        {
-          id: 1,
-          topic: 'C#',
-          whenPosted: 'Date',
-          isAnswered: false,
-          whatProb: 'I forgot how to C sharpie',
-        },
-        // {
-        //   id: 2,
-        //   topic: 'React',
-        //   whenPosted: 'Date',
-        //   isAnswered: false,
-        //   whatProb: 'Help! Poor reaction',
-        // },
-        // {
-        //   id: 3,
-        //   topic: 'C#',
-        //   whenPosted: 'Date',
-        //   isAnswered: false,
-        //   whatProb: 'C++',
-        // },
-        // {
-        //   id: 4,
-        //   topic: 'Javascript',
-        //   whenPosted: 'Date',
-        //   isAnswered: false,
-        //   whatProb: "can't front end",
-        // },
-      ],
-    }
+  const getAllQuestions = async () => {
+    const resp = await axios.get('api/questions')
+    setQuestions(resp.data)
   }
+  useEffect(() => {
+    getAllQuestions()
+  }, [])
 
   const updateSearchFilter = e => {
     setSearchFilter(e.target.value)
@@ -77,17 +50,16 @@ const Search = () => {
       </section>
       <main>
         <ul>
-          {/* {questions.filter(q => {
-            // console.log('Will this work?')
-            return q.name.toLowerCase().includes(searchFilter.toLowerCase())
-          })
-          .map((q) => {
-            return (
-              
-              topic={q.topic},
-              
-              )
-            })} */}
+          {questions
+            .filter(question => {
+              // console.log('Will this work?')
+              return question.name
+                .toLowerCase()
+                .includes(searchFilter.toLowerCase())
+            })
+            .map(question => {
+              return <Question question={question} />
+            })}
           <li>Result 1</li>
           <li>Result 2</li>
           <li>Result 3</li>
