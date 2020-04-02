@@ -5,22 +5,22 @@ import { Link } from 'react-router-dom'
 
 const Search = () => {
   const [questions, setQuestions] = useState([])
-  const [searchFilter, setSearchFilter] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
 
-  // usestate placeholder for questions
-  // const [questions, setQuestions] = useState('')
-  const getAllQuestions = async () => {
-    const resp = await axios.get('api/questions')
+  const searchQuestions = async () => {
+    const resp = await axios.get(
+      `api/search/questions?searchTerm=${searchTerm}`
+    )
     setQuestions(resp.data)
   }
-  useEffect(() => {
-    getAllQuestions()
-  }, [])
+  // useEffect(() => {
+  //   getAllQuestions()
+  // }, [])
 
-  const updateSearchFilter = e => {
-    setSearchFilter(e.target.value)
-    console.log(e.target.value)
-  }
+  // const updateSearchFilter = e => {
+  //   setSearchFilter(e.target.value)
+  //   console.log(e.target.value)
+  // }
 
   // placeholder for API call
 
@@ -43,28 +43,15 @@ const Search = () => {
         <h3>Please enter a search prompt in the box below:</h3>
         <input
           type="search"
+          value={searchTerm}
           placeholder="search by keyword"
-          onChange={updateSearchFilter}
+          onChange={e => setSearchTerm(e.target.value)}
         />
-        <button>Search</button>
+        <button onClick={e => searchQuestions(e.target.value)}>Search</button>
       </section>
       <main>
-        <ul>
-          {questions
-            .filter(question => {
-              // console.log('Will this work?')
-              return question.name
-                .toLowerCase()
-                .includes(searchFilter.toLowerCase())
-            })
-            .map(question => {
-              return <Question question={question} />
-            })}
-          <li>Result 1</li>
-          <li>Result 2</li>
-          <li>Result 3</li>
-          <li>Result 4</li>
-        </ul>
+        {questions.length > 0 ? <Question questions={questions} /> : <h4></h4>}
+
         <section className="no-results-message">
           Question not found.
           <Link to="/add"> Add a question to Suncoast Overflow?</Link>
