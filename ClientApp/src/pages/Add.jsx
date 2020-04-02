@@ -39,16 +39,18 @@ const Add = () => {
     return (
       <>
         <main>
-          <p>Add Your Question</p>
-          <input
-            type="text"
-            name="userQuestion"
-            onChange={updateQuestionData}
-          />
-          <p>Enter Keyword(s) for your Question</p>
-          <input type="text" name="keyWord" onChange={updateQuestionData} />
-          <p>Submit</p>
-          <button onClick={addQuestionToApi}>Add</button>
+          <section className="question-entry">
+            <p>Add Your Question</p>
+            <input
+              type="text"
+              name="userQuestion"
+              onChange={updateQuestionData}
+            />
+            <p>Enter Keyword(s) for your Question</p>
+            <input type="text" name="keyWord" onChange={updateQuestionData} />
+            <p>Submit</p>
+            <button onClick={addQuestionToApi}>Add</button>
+          </section>
         </main>
       </>
     )
