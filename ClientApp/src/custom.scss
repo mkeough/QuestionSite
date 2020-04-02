@@ -68,6 +68,14 @@ code {
   margin-right: 1rem;
 }
 
+.question-entry > h1 {
+  margin-bottom: 3rem;
+}
+
+.question-entry > input {
+  margin-bottom: 1rem;
+}
+
 .no-results-message {
   display: flex;
   justify-content: center;
@@ -97,5 +105,9 @@ section.redirect {
 }
 
 .question-entry {
+  text-align: -webkit-center;
+}
+
+.search-page {
   text-align: -webkit-center;
 }
