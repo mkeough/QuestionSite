@@ -2,7 +2,7 @@ import React from 'react'
 import { Router, Link, Route, Switch } from 'react-router-dom'
 
 const Question = props => {
-  const { question, id } = props
+  const { question } = props
   return (
     <>
       <main>
