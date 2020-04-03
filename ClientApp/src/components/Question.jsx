@@ -10,6 +10,8 @@ const Question = props => {
           <h1>
             <Link to={`/question/${question.id}`}>{question.userQuestion}</Link>
           </h1>
+          <h2>KeyWord(s) for this question:</h2>
+          <p>{question.keyWord}</p>
         </section>
       </main>
     </>
