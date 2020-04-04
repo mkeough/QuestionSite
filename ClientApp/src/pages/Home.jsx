@@ -8,9 +8,10 @@ export function Home() {
         <header>
           <section class="hero">
             <h1>Suncoast Overflow</h1>
-
-            <h3>Find your solution, here!</h3>
           </section>
+          <footer>
+            <h4>Find your solution, here!</h4>
+          </footer>
         </header>
         <p>View All Questions</p>
         <button>

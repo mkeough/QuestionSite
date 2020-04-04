@@ -15,7 +15,7 @@ const Search = () => {
   }
   return (
     <>
-      <section>
+      <section className="search-page">
         <h1>Search Questions</h1>
         <h2>Enter Keyword(s)</h2>
         <input
@@ -24,8 +24,8 @@ const Search = () => {
           onChange={e => setKeyWord(e.target.value)}
         />
         <button onClick={searchForQuestions}>Search</button>
-      </section>
-      <section>
+        {/* </section>
+      <section> */}
         {results.length > 0 ? (
           <QuestionList results={results} />
         ) : (

@@ -40,6 +40,7 @@ const Add = () => {
       <>
         <main>
           <section className="question-entry">
+            <h1>Add a question</h1>
             <p>Add Your Question</p>
             <input
               type="text"
