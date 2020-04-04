@@ -8,7 +8,7 @@ namespace QuestionSite.Models
   public partial class DatabaseContext : DbContext
   {
     public DbSet<Question> Questions { get; set; }
-    public DbSet<Review> Reviews { get; set; }
+    public DbSet<Answer> Answers { get; set; }
 
 
 

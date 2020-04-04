@@ -1,20 +1,21 @@
 
 using System;
+using System.Text.Json.Serialization;
 
 
 namespace QuestionSite.Models
 {
-  public class Review
+  public class Answer
   {
     public int Id { get; set; }
-    public string Comment { get; set; }
+    public string UserAnswer { get; set; }
     public int Rating { get; set; }
-    public DateTime When { get; set; } = DateTime.Now;
+    public DateTime SubmittedAt { get; set; } = DateTime.Now;
 
     // navigation properties
     public int QuestionId { get; set; }
 
-    // [JsonIgnore]
+    [JsonIgnore]
     public Question Question { get; set; }
   }
 }

@@ -31,7 +31,7 @@ namespace QuestionSite.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult<Question>> GetQuestion(int id)
     {
-      var question = await _context.Questions.FindAsync(id);
+      var question = await _context.Questions.Include(qst => qst.Answers).FirstOrDefaultAsync(f => f.Id == id);
 
       if (question == null)
       {
@@ -83,6 +83,19 @@ namespace QuestionSite.Controllers
       await _context.SaveChangesAsync();
 
       return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
+    }
+
+    [HttpPost("{questionId}/answers")]
+    public async Task<ActionResult> AddAnswerForQuestion(int questionId, Answer userAnswer)
+    {
+      //opt 1
+      // adding review to the trial
+      userAnswer.QuestionId = questionId;
+      // add the review to the database
+      _context.Answers.Add(userAnswer);
+      await _context.SaveChangesAsync();
+      // returning something
+      return Ok(userAnswer);
     }
 
     // DELETE: api/Questions/5

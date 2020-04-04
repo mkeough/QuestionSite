@@ -3,6 +3,7 @@ import Question from '../components/Question'
 import axios from 'axios'
 import { Router, Link, Route, Switch } from 'react-router-dom'
 import QuestionDetails from './QuestionDetails'
+import AllQuestion from '../components/AllQuestions'
 
 const View = () => {
   const [questions, setQuestions] = useState([])
@@ -18,7 +19,7 @@ const View = () => {
     <div>
       <h1>
         {questions.map(question => {
-          return <Question question={question} />
+          return <AllQuestion question={question} />
         })}
       </h1>
     </div>

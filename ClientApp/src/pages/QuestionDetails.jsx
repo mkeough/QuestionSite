@@ -17,9 +17,14 @@ const QuestionDetails = props => {
 
   useEffect(() => {
     getQuestionData()
+    // getAnswers()
   }, [])
   if (question) {
-    return <Question question={question} />
+    return (
+      <>
+        <Question question={question} />
+      </>
+    )
   } else {
     return <p>loading...</p>
   }

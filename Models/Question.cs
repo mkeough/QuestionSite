@@ -16,6 +16,6 @@ namespace QuestionSite.Models
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 
     // nav prop
-    public List<Review> Reviews { get; set; } = new List<Review>();
+    public List<Answer> Answers { get; set; } = new List<Answer>();
   }
 }
