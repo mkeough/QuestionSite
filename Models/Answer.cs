@@ -9,7 +9,9 @@ namespace QuestionSite.Models
   {
     public int Id { get; set; }
     public string UserAnswer { get; set; }
-    public int Rating { get; set; }
+    public int UpVote { get; set; } = 0;
+
+    public int DownVote { get; set; } = 0;
     public DateTime SubmittedAt { get; set; } = DateTime.Now;
 
     // navigation properties

@@ -97,6 +97,32 @@ namespace QuestionSite.Controllers
       // returning something
       return Ok(userAnswer);
     }
+    [HttpPost("{questionId}/answers/{answerId}/upvote")]
+    public async Task<ActionResult> AddUpVote(int questionId, int answerId)
+    {
+      var foundAnswer = await _context.Answers.FirstOrDefaultAsync(answer => answer.Id == answerId && answer.QuestionId == questionId);
+      foundAnswer.UpVote += 1;
+      // _context.Answers.Update(upVote);
+      await _context.SaveChangesAsync();
+      return Ok(foundAnswer);
+
+
+    }
+    [HttpPost("{questionId}/answers/{answerId}/downvote")]
+    public async Task<ActionResult> AddDownVote(int questionId, int answerId)
+    {
+      var foundAnswer = await _context.Answers.FirstOrDefaultAsync(answer => answer.Id == answerId && answer.QuestionId == questionId);
+      foundAnswer.DownVote += 1;
+      // _context.Answers.Update(upVote);
+      await _context.SaveChangesAsync();
+      return Ok(foundAnswer);
+
+
+    }
+
+
+
+
 
     // DELETE: api/Questions/5
     [HttpDelete("{id}")]

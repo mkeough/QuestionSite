@@ -3,11 +3,24 @@ import { Router, Link, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 const Question = props => {
   const { question } = props
+  // const { answer } = props
   const [newAnswerText, setNewAnswerText] = useState('')
   const sendAnswerToApi = async () => {
     const resp = await axios.post(`/api/questions/${question.id}/answers`, {
       userAnswer: newAnswerText,
     })
+    console.log(resp.data)
+  }
+  const sendUpVoteToApi = async answer => {
+    const resp = await axios.post(
+      `/api/questions/${question.id}/answers/${answer.id}/upvote`
+    )
+    console.log(resp.data)
+  }
+  const sendDownVoteToApi = async answer => {
+    const resp = await axios.post(
+      `/api/questions/${question.id}/answers/${answer.id}/downvote`
+    )
     console.log(resp.data)
   }
   return (
@@ -26,9 +39,17 @@ const Question = props => {
                 return (
                   <li>
                     <p>{answer.userAnswer}</p>
+                    <p>
+                      Upvotes:{answer.upVote}Downvotes:{answer.downVote}
+                    </p>
+
                     <h3>Like this answer?</h3>
-                    <button>Upvote</button>
-                    <button>Downvote</button>
+                    <button onClick={() => sendUpVoteToApi(answer)}>
+                      Upvote
+                    </button>
+                    <button onClick={() => sendDownVoteToApi(answer)}>
+                      Downvote
+                    </button>
                   </li>
                 )
               })}
