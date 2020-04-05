@@ -102,7 +102,6 @@ namespace QuestionSite.Controllers
     {
       var foundAnswer = await _context.Answers.FirstOrDefaultAsync(answer => answer.Id == answerId && answer.QuestionId == questionId);
       foundAnswer.UpVote += 1;
-      // _context.Answers.Update(upVote);
       await _context.SaveChangesAsync();
       return Ok(foundAnswer);
 
@@ -113,9 +112,27 @@ namespace QuestionSite.Controllers
     {
       var foundAnswer = await _context.Answers.FirstOrDefaultAsync(answer => answer.Id == answerId && answer.QuestionId == questionId);
       foundAnswer.DownVote += 1;
-      // _context.Answers.Update(upVote);
       await _context.SaveChangesAsync();
       return Ok(foundAnswer);
+
+
+    }
+    [HttpPost("{questionId}/upvote")]
+    public async Task<ActionResult> UpVoteQuestion(int questionId)
+    {
+      var foundQuestion = await _context.Questions.FirstOrDefaultAsync(question => question.Id == questionId);
+      foundQuestion.UpVote += 1;
+      await _context.SaveChangesAsync();
+      return Ok(foundQuestion);
+    }
+    [HttpPost("{questionId}/downvote")]
+    public async Task<ActionResult> DownVoteQuestion(int questionId)
+    {
+      var foundQuestion = await _context.Questions.FirstOrDefaultAsync(question => question.Id == questionId);
+      foundQuestion.DownVote += 1;
+
+      await _context.SaveChangesAsync();
+      return Ok(foundQuestion);
 
 
     }

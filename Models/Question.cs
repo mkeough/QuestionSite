@@ -13,6 +13,10 @@ namespace QuestionSite.Models
 
     public bool IsAnswered { get; set; }
 
+    public int UpVote { get; set; } = 0;
+
+    public int DownVote { get; set; } = 0;
+
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 
     // nav prop

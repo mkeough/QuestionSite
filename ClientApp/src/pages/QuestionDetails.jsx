@@ -7,7 +7,6 @@ const QuestionDetails = props => {
   console.log(props)
   const questionId = props.match.params.questionId
   const [question, setQuestion] = useState()
-  const [reviewScore, setReviewScore] = useState(0)
 
   const getQuestionData = async () => {
     const resp = await axios.get('/api/questions/' + questionId)
@@ -17,7 +16,6 @@ const QuestionDetails = props => {
 
   useEffect(() => {
     getQuestionData()
-    // getAnswers()
   }, [])
   if (question) {
     return (
