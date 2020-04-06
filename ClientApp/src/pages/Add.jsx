@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import image from '../images/calculator.jpg'
 
 const Add = () => {
   const [question, setQuestion] = useState({})
@@ -39,18 +40,40 @@ const Add = () => {
     return (
       <>
         <main>
-          <section className="question-entry">
-            <h1>Add a question</h1>
-            <p>Add Your Question</p>
-            <input
-              type="text"
-              name="userQuestion"
-              onChange={updateQuestionData}
-            />
-            <p>Enter Keyword(s) for your Question</p>
-            <input type="text" name="keyWord" onChange={updateQuestionData} />
-            <p>Submit</p>
-            <button onClick={addQuestionToApi}>Add</button>
+          <section>
+            <section className="question-entry">
+              <h1 class="addContent">Add a question</h1>
+              <p class="addContent">Add Your Question</p>
+              <input
+                type="text"
+                name="userQuestion"
+                onChange={updateQuestionData}
+              />
+              <p class="addContent">Enter Keyword(s) for your Question</p>
+              <input
+                class="addContent"
+                type="text"
+                name="keyWord"
+                onChange={updateQuestionData}
+              />
+              <p>Submit</p>
+              <button class="addContent" onClick={addQuestionToApi}>
+                Add
+              </button>
+              <img class="calc-Image" src={image} alt="add calculator" />
+              <h6>
+                {' '}
+                Photo by 
+                <a href=" https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                  Annie Spratt
+                </a>{' '}
+                 on 
+                <a href="https://unsplash.com/s/photos/math-adding?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                  Unsplash
+                </a>
+                .{' '}
+              </h6>
+            </section>
           </section>
         </main>
       </>

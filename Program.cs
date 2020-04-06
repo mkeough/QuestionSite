@@ -12,24 +12,24 @@ using QuestionSite.Models;
 
 namespace QuestionSite
 {
-  public class Program
-  {
-    public static async Task Main(string[] args)
+    public class Program
     {
-      var host = CreateWebHostBuilder(args).Build();
-      using (var scope = host.Services.CreateScope())
-      {
-        var context = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
-        Console.WriteLine("Starting to migrate database....");
-        await context.Database.MigrateAsync();
-        Console.WriteLine("Database is up to date, #party time");
-      }
+        public static async Task Main(string[] args)
+        {
+            var host = CreateWebHostBuilder(args).Build();
+            using (var scope = host.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+                Console.WriteLine("Starting to migrate database....");
+                await context.Database.MigrateAsync();
+                Console.WriteLine("Database is up to date, #party time");
+            }
 
-      await host.RunAsync();
+            await host.RunAsync();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
     }
-
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>();
-  }
 }

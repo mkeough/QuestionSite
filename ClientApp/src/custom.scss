@@ -100,7 +100,7 @@ section.redirect {
   justify-content: center;
   color: rgba(21, 21, 21, 0.81);
 }
-.error-pic-box {
+h6 {
   font-style: italic;
 }
 
@@ -110,4 +110,19 @@ section.redirect {
 
 .search-page {
   text-align: -webkit-center;
+}
+.search-image {
+  height: 50vh;
+  width: 50vw;
+  opacity: 0.8;
+}
+img.calc-Image {
+  padding-top: 2rem;
+  height: 40vh;
+  width: 15vw;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
